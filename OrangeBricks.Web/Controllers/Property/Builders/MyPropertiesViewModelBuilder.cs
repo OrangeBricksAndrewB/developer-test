@@ -28,7 +28,7 @@ namespace OrangeBricks.Web.Controllers.Property.Builders
                         PropertyType = p.PropertyType,
                         IsListedForSale = p.IsListedForSale
                     })
-                    .ToList()
+                    .ToList() // use of ToLIst is generally undesirable, but may be considered acceptable here as the number of properties returned is likely to be relatively small compared to total number of properties listed in the system
             };
         }
     }

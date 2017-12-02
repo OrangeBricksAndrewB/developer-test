@@ -33,6 +33,7 @@ namespace OrangeBricks.Web.Controllers.Property
         {
             var viewModel = new CreatePropertyViewModel();
 
+            // TODO: an improvement is to use an enumeration for the property types
             viewModel.PossiblePropertyTypes = new string[] { "House", "Flat", "Bungalow" }
                 .Select(x => new SelectListItem { Value = x, Text = x })
                 .AsEnumerable();
@@ -62,6 +63,22 @@ namespace OrangeBricks.Web.Controllers.Property
             return View(viewModel);
         }
 
+        /// <summary>
+        /// As a Buyer I want to list my property as for sale So that Buyers can view the property
+        /// GIVEN The property is listed by the seller
+        /// AND The property is not listed for sale
+        /// WHEN The seller lists the property for sale
+        /// THEN The property is listed for sale
+        /// AND Buyers can view the property in the list of properties for sale
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        /// <remarks>I like the way the controller hands off execution of business logic to another class.
+        /// That class includes unit tests. What about adding a UT for the controller action?
+        /// The UT should:
+        /// Assert ListPropertyCommand.Handle is called once with the specified command 
+        /// Assert that the result is a Redirect to the "MyProperties" action
+        /// </remarks>
         [HttpPost]
         [OrangeBricksAuthorize(Roles = "Seller")]
         public ActionResult ListForSale(ListPropertyCommand command)

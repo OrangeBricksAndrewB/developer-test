@@ -15,9 +15,16 @@ namespace OrangeBricks.Web.Controllers.Property.Builders
             _context = context;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
         public PropertiesViewModel Build(PropertiesQuery query)
         {
-            var properties = _context.Properties
+            // Discussion point: implicit or explicit declaration?
+            //var properties = _context.Properties
+            IQueryable<Models.Property> properties = _context.Properties
                 .Where(p => p.IsListedForSale);
 
             if (!string.IsNullOrWhiteSpace(query.Search))
@@ -29,13 +36,20 @@ namespace OrangeBricks.Web.Controllers.Property.Builders
             return new PropertiesViewModel
             {
                 Properties = properties
-                    .ToList()
+                    //.ToList() redundant use of ToList
                     .Select(MapViewModel)
-                    .ToList(),
+                    .ToList(), // TODO: undesirable use of ToList here - suppose there are a million properties...
+                                // needs refactoring to return an IEnumerable so views can load properties on demand
                 Search = query.Search
             };
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="property"></param>
+        /// <returns></returns>
+        /// <remarks>Fixed BUG: IsListedForSale property not set</remarks>
         private static PropertyViewModel MapViewModel(Models.Property property)
         {
             return new PropertyViewModel
@@ -44,7 +58,8 @@ namespace OrangeBricks.Web.Controllers.Property.Builders
                 StreetName = property.StreetName,
                 Description = property.Description,
                 NumberOfBedrooms = property.NumberOfBedrooms,
-                PropertyType = property.PropertyType
+                PropertyType = property.PropertyType,
+                IsListedForSale = property.IsListedForSale
             };
         }
     }
