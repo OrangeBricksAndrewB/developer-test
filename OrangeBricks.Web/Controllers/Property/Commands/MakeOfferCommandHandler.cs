@@ -20,6 +20,7 @@ namespace OrangeBricks.Web.Controllers.Property.Commands
             var offer = new Offer
             {
                 Amount = command.Offer,
+                BuyerUserId = command.Buyer,
                 Status = OfferStatus.Pending,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now

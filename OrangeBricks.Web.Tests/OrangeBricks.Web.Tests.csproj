@@ -96,10 +96,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Offers\Builders\MyOffersViewModelBuilderTest.cs" />
+    <Compile Include="Controllers\Offers\OffersControllertest.cs" />
     <Compile Include="Controllers\Property\Builders\PropertiesViewModelBuilderTest.cs" />
     <Compile Include="Controllers\Property\Commands\CreatePropertyCommandHandlerTest.cs" />
     <Compile Include="Controllers\Property\Commands\ListPropertyCommandHandlerTest.cs" />
     <Compile Include="Controllers\Property\PropertyControllerTest.cs" />
+    <Compile Include="Helpers\MockData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

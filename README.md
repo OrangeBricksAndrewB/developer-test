@@ -39,3 +39,46 @@ Good luck!
 
 * Do I need to deploy the application?
     * If you wish to demonstrate your working app then you may deploy it to Azure on a free trial account. This is not mandatory.
+
+## Test Responses
+
+### Objective 3 - Review the existing code
+I have progressed objective 3 before attempting to extend or add new features.
+This is the way I would work when starting a new project - I would not expect to leap straight in and start modifying code without firstly gaining at least some familiarity with the problem domain and the codebase itself.
+
+I did not have time for a comprehensive code review, nevertheless, I found more issues than I expected, including:
+* No links to user stories or behaviours
+* Poor unit test coverage
+* OWASP vunerabilities
+* Code defects
+* Code that doesn't scale.
+I would need more time to further assess how the design satisfies SOLID design principles.
+
+In a real situation, it would be necessary to raise these issues with the product owner and advise they are addressed before new features are added.
+
+I have added commentary in the code, with discussion points.
+Note: I have deliberately left one failing unit test.
+
+### Objective 1 - Extend an existing feature
+I have completed this objective i.e. code compiles, executes, unit tests pass.
+In a real scenario I would expect to define more precise behaviours (in consultation with Product Owners,Business Analysts and testers) that deliver the story.
+For example:
+**User Story:** 
+*As a buyer I want to book a viewing appointment at a property so that I can determine whether I would like to make an offer.*
+
+#### Feature
+My Offers view
+
+#### Scenario
+My Offers are listed in the My Offers view
+
+#### Behaviour
+**GIVEN** I have an offer on a property
+**WHEN** I open the My Offers view
+**THEN** I can view the status of my offer for the property
+
+The My Offers feature satisfied the story, but other implementations are possible.
+The My Offers feature could be demonstrated to the Product Owner as a prototype of how the story could be delivered.
+
+### Objective 2 – Add a new feature
+I have not had time to progress this as yet.

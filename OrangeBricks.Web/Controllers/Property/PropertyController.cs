@@ -103,7 +103,7 @@ namespace OrangeBricks.Web.Controllers.Property
         public ActionResult MakeOffer(MakeOfferCommand command)
         {
             var handler = new MakeOfferCommandHandler(_context);
-
+            command.Buyer = User.Identity.GetUserId();
             handler.Handle(command);
 
             return RedirectToAction("Index");

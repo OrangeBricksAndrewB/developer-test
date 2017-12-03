@@ -15,5 +15,13 @@ namespace OrangeBricks.Web.Models
         public DateTime CreatedAt { get; set; }
 
         public DateTime UpdatedAt { get; set; }
+
+        public string BuyerUserId { get; set; }
+
+        // The FK is not in the model - we can add it but it requires a new migration
+        // alternatively, we can add just the navigation property and let EF do the work
+        public int PropertyId { get; set; }
+        [System.ComponentModel.DataAnnotations.Schema.ForeignKey("PropertyId")]
+        public virtual Property Property { get; set; }
     }
 }
