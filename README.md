@@ -82,3 +82,8 @@ The My Offers feature could be demonstrated to the Product Owner as a prototype 
 
 ### Objective 2 – Add a new feature
 I have not had time to progress this as yet.
+
+#### NOTE
+I have done my work on the master branch in my fork.
+Some companies recommend using the Git workflow (see: https://www.atlassian.com/git/tutorials/comparing-workflows);
+however, others recommend a single branch with use of feature switches.
